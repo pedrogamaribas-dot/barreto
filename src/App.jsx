@@ -1230,7 +1230,10 @@ function App() {
           <span>
             Feito para Barra Mansa - RJ • Equipamentos líderes de mercado (Intelbras, Hikvision e outras)
           </span>
-        </div>
+            <span>
+              Desenvolvido por Pedro Ribas | <a href="https://instagram.com/pedrogaamaribas" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">@pedrogaamaribas</a>
+            </span>
+          </div>
       </footer>
 
     </div>
