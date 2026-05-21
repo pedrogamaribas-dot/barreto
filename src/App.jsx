@@ -282,7 +282,7 @@ function App() {
                   <div className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></span>
                     <span className="text-gray-300 text-[9px] md:text-[10px] font-semibold leading-none">
-                      Mais de 500 clientes protegidos em Barra Mansa
+                      Mais de 500 clientes protegidos
                     </span>
                   </div>
                 </div>
@@ -1143,6 +1143,65 @@ function App() {
         </div>
       </section>
 
+      {/* NOSSOS CLIENTES MARQUEE */}
+      <section className="py-14 bg-brand-black border-t border-white/5 relative z-10 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-gray-500 text-xs font-black uppercase tracking-[0.25em] block mb-2">
+              Nossos clientes
+            </span>
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              Como diversos outros, esses clientes já escolheram a Barretos Segurança para proteger o que importa.
+            </p>
+          </div>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="relative w-full flex overflow-hidden mask-fade">
+          <div className="flex gap-6 py-4 px-2 w-max animate-marquee whitespace-nowrap">
+            {/* Sequence 1 */}
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm1.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm2.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/galpao.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/espacoc.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pnb.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/play.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+
+            {/* Sequence 2 */}
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm1.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm2.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/galpao.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/espacoc.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pnb.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/play.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-brand-black border-t border-white/5 py-12 md:py-16 relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
@@ -1161,7 +1220,7 @@ function App() {
               </div>
             </div>
             <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-sm mb-5 md:mb-6 font-sans">
-              Especialistas em sistemas de segurança eletrônica de última geração no modelo de comodato. Protegendo lares e comércios no Sul Fluminense.
+              Especialistas em sistemas de segurança eletrônica de última geração no modelo de comodato. Protegendo lares e comércios.
             </p>
             <span className="text-gray-500 text-xs">
               Barra Mansa, Rio de Janeiro - Brasil
@@ -1230,9 +1289,9 @@ function App() {
           <span>
             Feito para Barra Mansa - RJ • Equipamentos líderes de mercado (Intelbras, Hikvision e outras)
           </span>
-            <span>
-              Desenvolvido por Pedro Ribas | <a href="https://instagram.com/pedrogaamaribas" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">@pedrogaamaribas</a>
-            </span>
+          <span>
+            Desenvolvido por <a href="https://instagram.com/pedrogaamaribas" target="_blank" rel="noreferrer" className="hover:text-brand-red transition-colors duration-200 font-semibold">Pedro Ribas</a>
+          </span>
           </div>
       </footer>
 
