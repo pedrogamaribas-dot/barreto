@@ -1161,42 +1161,42 @@ function App() {
           <div className="flex gap-6 py-4 px-2 w-max animate-marquee whitespace-nowrap">
             {/* Sequence 1 */}
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm1.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/pm1.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm2.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/pm2.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/galpao.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/galpao.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/espacoc.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/espacoc.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pnb.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/pnb.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/play.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/play.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
 
             {/* Sequence 2 */}
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm1.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/pm1.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm2.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/pm2.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/galpao.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/galpao.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/espacoc.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/espacoc.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pnb.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/pnb.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/play.png" alt="Cliente" className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/play.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </div>
