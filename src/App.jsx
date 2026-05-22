@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Shield, 
@@ -17,7 +17,12 @@ import {
   Activity,
   Home,
   Building,
-  MapPin
+  MapPin,
+  Calendar,
+  Clock,
+  Award,
+  Headset,
+  Settings
 } from 'lucide-react';
 
 function App() {
@@ -49,7 +54,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-200 selection:bg-brand-red selection:text-white font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0a0a] text-gray-200 font-sans relative overflow-x-hidden">
       
       {/* 2. BACKGROUND WATERMARK FIXED */}
       <div 
@@ -215,17 +220,17 @@ function App() {
         {/* Glowing red radial gradient backdrop elements */}
         <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-12 lg:grid-cols-12 gap-2 sm:gap-4 md:gap-8 items-center relative z-10 w-full">
           
           {/* Left Column: Copywriting */}
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="lg:col-span-7 text-left flex flex-col justify-center"
+            className="col-span-7 md:col-span-7 lg:col-span-7 text-left flex flex-col justify-center"
           >
             {/* Giant Title - Max 40px on mobile */}
-            <h1 className="text-3xl sm:text-[40px] md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-5 leading-[1.1] font-sans">
+            <h1 className="text-[20px] xs:text-[25px] sm:text-[32px] md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-3 xs:mb-5 leading-[1.1] font-sans">
               Seu imóvel <br />
               <span className="text-brand-red font-black drop-shadow-sm">
                 protegido agora.
@@ -233,28 +238,46 @@ function App() {
             </h1>
 
             {/* Subtitle explaining Comodato */}
-            <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-xl mb-6 md:mb-8">
+            <p className="text-[10px] xs:text-xs sm:text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-xl mb-3 xs:mb-6 md:mb-8">
               Segurança eletrônica profissional no modelo de <strong className="text-white font-semibold">comodato</strong>. 
               Você não compra o equipamento: paga apenas uma assinatura acessível com instalação profissional, manutenção técnica 
               e equipamentos de ponta (<strong className="text-white font-semibold">Intelbras, Hikvision e outras</strong>) inclusos.
             </p>
 
             {/* CTAs - 100% width buttons on mobile */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full">
               <a 
                 href="#perfil"
-                className="bg-brand-red hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all duration-300 hover:shadow-red-glow text-center flex items-center justify-center gap-3 group relative overflow-hidden w-full sm:w-auto"
+                className="bg-brand-red hover:bg-red-700 text-white font-bold py-2 xs:py-3.5 px-2 xs:px-8 rounded-lg xs:rounded-xl text-[10px] xs:text-sm transition-all duration-300 hover:shadow-red-glow text-center flex items-center justify-center gap-1.5 xs:gap-3 group relative overflow-hidden w-full sm:w-auto"
               >
-                <Phone className="h-5 w-5" />
+                <Phone className="h-3.5 w-3.5 xs:h-5 xs:w-5" />
                 Orçamento pelo WhatsApp
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-3 w-3 xs:h-4 xs:w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a 
                 href="#planos"
-                className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold py-3.5 px-8 rounded-xl text-sm transition-all duration-300 text-center w-full sm:w-auto"
+                className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold py-2 xs:py-3.5 px-2 xs:px-8 rounded-lg xs:rounded-xl text-[10px] xs:text-sm transition-all duration-300 text-center w-full sm:w-auto"
               >
                 Conhecer Planos
               </a>
+            </div>
+
+            {/* Mobile/Desktop Trust Badges row */}
+            <div className="flex items-center justify-between gap-1 mt-4 border-t border-white/5 pt-4 text-[7px] xs:text-[9px] sm:text-xs text-gray-400 font-semibold tracking-wider uppercase">
+              <div className="flex items-center gap-1">
+                <Shield className="h-3 w-3 text-brand-red flex-shrink-0" />
+                <span>Instalação Profissional</span>
+              </div>
+              <div className="h-3 w-[1px] bg-white/10"></div>
+              <div className="flex items-center gap-1">
+                <Headset className="h-3 w-3 text-brand-red flex-shrink-0" />
+                <span>Suporte Especializado</span>
+              </div>
+              <div className="h-3 w-[1px] bg-white/10"></div>
+              <div className="flex items-center gap-1">
+                <Shield className="h-3 w-3 text-brand-red flex-shrink-0" />
+                <span>Equipamentos de Ponta</span>
+              </div>
             </div>
           </motion.div>
 
@@ -263,59 +286,51 @@ function App() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative h-auto md:h-[450px] w-full flex items-center justify-center mt-6 lg:mt-0 pb-10 lg:pb-0"
+            className="col-span-5 md:col-span-5 lg:col-span-5 relative h-auto md:h-[450px] w-full flex lg:flex items-center justify-center mt-0 lg:mt-0 pb-0 md:pb-10 lg:pb-0"
           >
             {/* Interactive Asymmetric CSS Dashboard */}
             
-            <div className="relative mx-auto w-[calc(100%-32px)] max-w-[360px] p-4 md:absolute md:top-0 md:right-12 md:w-[416px] md:max-w-none md:p-6 md:mx-0 z-20 glassmorphism rounded-2xl shadow-glass border border-white/10 overflow-hidden md:overflow-visible animate-float-s">
+            <div className="relative mx-auto w-full max-w-[170px] xs:max-w-[210px] sm:max-w-[280px] md:max-w-none md:w-[416px] p-2 xs:p-3 sm:p-4 md:p-6 z-20 glassmorphism rounded-xl xs:rounded-2xl shadow-glass border border-white/10 overflow-visible animate-float-s md:absolute md:top-0 md:right-12 md:mx-0">
               
               {/* Centered Social Proof Badge */}
-              <div className="flex justify-center mb-4">
-                <div className="flex flex-wrap items-center justify-center gap-2 bg-[#0c0c0c]/80 backdrop-blur-md py-1 px-3 rounded-full border border-white/5 w-fit">
+              <div className="flex justify-center mb-2 xs:mb-4">
+                <div className="flex flex-wrap items-center justify-center gap-1 xs:gap-2 bg-[#0c0c0c]/80 backdrop-blur-md py-0.5 xs:py-1 px-1.5 xs:px-3 rounded-full border border-white/5 w-fit">
                   {/* Avatars CSS stacked pile in black/gray */}
-                  <div className="flex -space-x-1.5">
-                    <div className="h-5 w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[8px] font-bold border border-[#333333]">J</div>
-                    <div className="h-5 w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[8px] font-bold border border-[#333333]">M</div>
-                    <div className="h-5 w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[8px] font-bold border border-[#333333]">A</div>
-                    <div className="h-5 w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[8px] font-bold border border-[#333333]">C</div>
+                  <div className="flex -space-x-1 xs:-space-x-1.5">
+                    <div className="h-3.5 w-3.5 xs:h-5 xs:w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[5px] xs:text-[8px] font-bold border border-[#333333]">J</div>
+                    <div className="h-3.5 w-3.5 xs:h-5 xs:w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[5px] xs:text-[8px] font-bold border border-[#333333]">M</div>
+                    <div className="h-3.5 w-3.5 xs:h-5 xs:w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[5px] xs:text-[8px] font-bold border border-[#333333]">A</div>
+                    <div className="h-3.5 w-3.5 xs:h-5 xs:w-5 rounded-full bg-[#1a1a1a] flex items-center justify-center text-gray-300 text-[5px] xs:text-[8px] font-bold border border-[#333333]">C</div>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></span>
-                    <span className="text-gray-300 text-[9px] md:text-[10px] font-semibold leading-none">
+                  <div className="flex items-center gap-1">
+                    <span className="h-1 w-1 xs:h-1.5 xs:w-1.5 rounded-full bg-brand-red animate-pulse"></span>
+                    <span className="text-gray-300 text-[7px] xs:text-[9px] md:text-[10px] font-semibold leading-none">
                       Mais de 500 clientes protegidos
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-3 md:pb-4">
-                <div className="flex items-center gap-2.5">
-                  <Activity className="h-4.5 w-4.5 md:h-5 md:w-5 text-brand-red" />
-                  <span className="text-white text-xs md:text-sm font-bold font-sans">Monitoramento ao Vivo</span>
+              <div className="flex items-center justify-between mb-2 xs:mb-4 border-b border-white/5 pb-2 xs:pb-3 md:pb-4">
+                <div className="flex items-center gap-1 xs:gap-2.5">
+                  <Activity className="h-3.5 w-3.5 xs:h-4.5 xs:w-4.5 md:h-5 md:w-5 text-brand-red" />
+                  <span className="text-white text-[9px] xs:text-xs md:text-sm font-bold font-sans">Monitoramento ao Vivo</span>
                 </div>
-                <div className="flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 py-1 px-2.5 rounded-full">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></span>
-                  <span className="text-[10px] md:text-xs text-brand-red font-bold tracking-wider">LIVE</span>
+                <div className="flex items-center gap-1 xs:gap-2 bg-brand-red/10 border border-brand-red/20 py-0.5 px-1.5 xs:py-1 xs:px-2.5 rounded-full">
+                  <span className="h-1 w-1 xs:h-1.5 xs:w-1.5 rounded-full bg-brand-red animate-pulse"></span>
+                  <span className="text-[7px] xs:text-[10px] md:text-xs text-brand-red font-bold tracking-wider">LIVE</span>
                 </div>
               </div>
 
               {/* Mini Camera Feed Frame */}
-              <div className="relative w-full h-36 md:h-48 bg-black rounded-lg border border-white/5 overflow-hidden flex items-center justify-center">
-                {/* Simulated Feed Grid lines */}
-                <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 opacity-10 pointer-events-none">
-                  {[...Array(9)].map((_, i) => (
-                    <div key={i} className="border-[0.5px] border-white"></div>
-                  ))}
-                </div>
-                {/* Stylized vector representation of security zone */}
-                <div className="relative flex flex-col items-center z-10">
-                  <Eye className="h-9 w-9 text-white/40 animate-pulse mb-1.5" />
-                  <span className="text-[10px] md:text-xs text-white/50 font-semibold uppercase tracking-widest">Barra Mansa / RJ</span>
-                </div>
+              <div 
+                className="relative w-full h-20 xs:h-28 sm:h-36 md:h-48 bg-black rounded-lg border border-white/5 overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: 'url(/cameras.jpg)' }}
+              >
                 
                 {/* REC Flashing Dot */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-2 py-1 rounded text-[10px] md:text-xs font-bold text-brand-red border border-brand-red/20">
-                  <span className="h-2 w-2 rounded-full bg-brand-red animate-ping"></span>
+                <div className="absolute top-1.5 left-1.5 xs:top-3 xs:left-3 flex items-center gap-1 bg-black/80 backdrop-blur-md px-1 py-0.5 xs:px-2 xs:py-1 rounded text-[7px] xs:text-[10px] md:text-xs font-bold text-brand-red border border-brand-red/20">
+                  <span className="h-1.5 w-1.5 xs:h-2 xs:w-2 rounded-full bg-brand-red animate-ping"></span>
                   <span>CAM 01 - Full HD</span>
                 </div>
 
@@ -324,27 +339,27 @@ function App() {
               </div>
 
               {/* Analytics status bar */}
-              <div className="mt-4 md:mt-5">
-                <div className="flex justify-between items-center text-[10px] md:text-xs text-gray-400 mb-1.5">
+              <div className="mt-2 xs:mt-4 md:mt-5">
+                <div className="flex justify-between items-center text-[7px] xs:text-[10px] md:text-xs text-gray-400 mb-1">
                   <span>Sinal da Rede</span>
                   <span className="text-white font-bold">100% Excelente</span>
                 </div>
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                <div className="w-full h-1 xs:h-1.5 bg-white/5 rounded-full overflow-hidden">
                   <div className="w-[100%] h-full bg-brand-red rounded-full"></div>
                 </div>
               </div>
 
               {/* Status information */}
-              <div className="mt-4 md:mt-5 flex items-center justify-between border-t border-white/5 pt-3 md:pt-4 text-xs md:text-sm text-gray-400">
+              <div className="mt-2 xs:mt-4 md:mt-5 flex items-center justify-between border-t border-white/5 pt-2 xs:pt-3 md:pt-4 text-[7px] xs:text-xs md:text-sm text-gray-400">
                 <span>Dispositivos</span>
-                <span className="text-white font-bold flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
-                  4 Câmeras Ativas
+                <span className="text-white font-bold flex items-center gap-1">
+                  <span className="h-1.5 w-1.5 xs:h-2 xs:w-2 rounded-full bg-brand-red animate-pulse"></span>
+                  9 Câmeras Ativas
                 </span>
               </div>
 
-              {/* Card 2: Status Indicator "ATIVO" badge (Solid Red / White Text) - stacked inside flow on mobile, absolute on desktop */}
-              <div className="relative mt-4 left-auto right-auto bottom-auto z-30 w-full bg-brand-red border border-brand-red rounded-xl p-3 shadow-red-glow flex items-center gap-3 animate-float-m md:absolute md:-left-8 md:-bottom-8 md:w-64">
+              {/* Card 2: Status Indicator "ATIVO" badge (Solid Red / White Text) - Hidden on mobile inside mockup, absolute on desktop */}
+              <div className="hidden md:flex md:absolute md:-left-8 md:-bottom-8 md:w-64 z-30 bg-brand-red border border-brand-red rounded-xl p-3 shadow-red-glow items-center gap-3 animate-float-m">
                 <div className="h-8 w-8 md:h-10 md:w-10 rounded-lg bg-white/20 border border-white/30 flex items-center justify-center text-white flex-shrink-0 relative">
                   <Shield className="h-4.5 w-4.5 md:h-5 md:w-5" />
                   <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-white animate-ping"></span>
@@ -356,84 +371,109 @@ function App() {
                 </div>
               </div>
 
-              {/* Card 3: Small dynamic price card - stacked inside flow on mobile, absolute on desktop */}
-              <div className="relative mt-3 left-auto right-auto bottom-auto z-30 w-full bg-brand-black/95 border border-brand-red/35 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg text-center animate-float-f md:absolute md:-right-6 md:bottom-20 md:w-auto">
-                <span className="text-[8px] text-brand-red font-extrabold uppercase tracking-widest block">COMODATO</span>
-                <span className="text-white text-xl md:text-2xl font-black block mt-0.5">R$ 139,90<span className="text-[10px] font-normal text-gray-300">/mês</span></span>
-                <span className="bg-brand-red/20 border border-brand-red/40 text-white font-bold text-[8px] px-2 py-0.5 rounded-full inline-block mt-1.5">
+              {/* Card 3: Small dynamic price card - absolute overlapping bottom-right corner on mobile and desktop */}
+              <div className="absolute -right-2 xs:-right-4 bottom-2 md:-right-6 md:bottom-20 z-30 w-[100px] xs:w-[130px] md:w-auto bg-brand-black/95 border border-brand-red/35 backdrop-blur-md rounded-xl xs:rounded-2xl p-1.5 xs:p-3 md:px-4 md:py-3 shadow-lg text-center animate-float-f">
+                <span className="text-[5px] xs:text-[8px] text-brand-red font-extrabold uppercase tracking-widest block">COMODATO</span>
+                <span className="text-white text-xs xs:text-base md:text-2xl font-black block mt-0.5">R$ 139,90<span className="text-[6px] xs:text-[10px] font-normal text-gray-300">/mês</span></span>
+                <span className="bg-brand-red/20 border border-brand-red/40 text-white font-bold text-[5px] xs:text-[8px] px-1 xs:px-2 py-0.5 rounded-full inline-block mt-1">
                   Equipamento Incluso
                 </span>
               </div>
             </div>
             
           </motion.div>
+
+          {/* Full-width Status Card below columns on mobile only */}
+          <div className="col-span-12 block md:hidden mt-4 xs:mt-6 w-full z-30">
+            <div className="glassmorphism border border-white/10 rounded-2xl p-3 xs:p-4 flex items-center justify-between bg-brand-black/40 backdrop-blur-md">
+              {/* Left side: System Status with Red Icon */}
+              <div className="flex items-center gap-2 xs:gap-3">
+                <div className="h-8 w-8 xs:h-10 xs:w-10 rounded-lg xs:rounded-xl bg-brand-red flex items-center justify-center text-white flex-shrink-0 relative shadow-red-glow">
+                  <Shield className="h-4.5 w-4.5 xs:h-5 xs:w-5" />
+                  <span className="absolute top-0 right-0 h-1.5 w-1.5 xs:h-2 xs:w-2 rounded-full bg-white animate-ping"></span>
+                </div>
+                <div className="text-left">
+                  <span className="text-[7px] xs:text-[9px] text-gray-400 font-bold uppercase tracking-wider block">SISTEMA CONECTADO</span>
+                  <span className="text-[10px] xs:text-xs font-black text-white block mt-0.5 leading-none">ALARME ATIVO 24H</span>
+                </div>
+              </div>
+              
+              {/* Divider line */}
+              <div className="h-8 w-[1px] bg-white/10 mx-1 xs:mx-2"></div>
+              
+              {/* Right side: Cameras active */}
+              <div className="text-right flex flex-col items-end justify-center">
+                <span className="text-white font-bold text-[10px] xs:text-xs flex items-center gap-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></span>
+                  9 Câmeras Ativas
+                </span>
+                <span className="text-gray-400 text-[8px] xs:text-[9px] block leading-none mt-1">Monitoramento 24h</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* STATS BAR - MOBILE OPTIMIZED */}
-      <section className="bg-brand-gray/40 border-y border-white/5 py-8 md:py-12 relative z-10">
+      {/* NOSSOS CLIENTES MARQUEE */}
+      <section className="pt-12 pb-14 bg-[#0a0a0a] relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-center">
-            
-            {/* Stat 1 */}
-            <div className="flex flex-col items-center">
-              <span className="text-2xl md:text-5xl font-black text-white tracking-tight leading-none mb-1 md:mb-2">500+</span>
-              <span className="text-[10px] md:text-sm text-gray-400 max-w-[130px] leading-snug">
-                Clientes protegidos em Barra Mansa
-              </span>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-gray-500 text-xs font-black uppercase tracking-[0.25em] block mb-2">
+              Nossos clientes
+            </span>
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              Como diversos outros, esses clientes já escolheram a Barretos Segurança para proteger o que importa.
+            </p>
+          </div>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="relative w-full flex overflow-hidden mask-fade">
+          <div className="flex gap-6 py-4 px-2 w-max animate-marquee whitespace-nowrap">
+            {/* Sequence 1 */}
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm1.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm2.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/galpao.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/espacoc.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pnb.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/play.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
 
-            {/* Stat 2 */}
-            <div className="flex flex-col items-center border-l border-white/5">
-              <span className="text-xl md:text-5xl font-black text-brand-red tracking-tight leading-none mb-1 md:mb-2">Desde 2018</span>
-              <span className="text-[10px] md:text-sm text-gray-400 max-w-[130px] leading-snug">
-                De experiência e confiança local
-              </span>
+            {/* Sequence 2 */}
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm1.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
-
-            {/* Stat 3 */}
-            <div className="flex flex-col items-center border-l border-white/5">
-              <span className="text-xl md:text-4xl font-black text-white tracking-tight leading-none mb-1 md:mb-2">Intelbras / Hikvision</span>
-              <span className="text-[10px] md:text-sm text-gray-400 max-w-[130px] leading-snug">
-                E outras marcas líderes de mercado
-              </span>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pm2.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
-
-            {/* Stat 4 */}
-            <div className="flex flex-col items-center border-l border-white/5">
-              <span className="text-2xl md:text-5xl font-black text-brand-red tracking-tight leading-none mb-1 md:mb-2">24h</span>
-              <span className="text-[10px] md:text-sm text-gray-400 max-w-[130px] leading-snug">
-                Suporte e assistência total inclusa
-              </span>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/galpao.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
             </div>
-
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/espacoc.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/pnb.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
+              <img src="/play.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* MARCAS PARCEIRAS MARQUEE */}
-      <section className="marcas-section">
-        <p className="marcas-titulo">Marcas que trabalhamos</p>
-        <div className="marquee-outer">
-          <div className="marquee-track">
 
-            {/* PRIMEIRA SEQUÊNCIA */}
-            <div className="brand-item"><img src="/intelbras.png" alt="Intelbras" /></div>
-            <div className="brand-item"><img src="/hikvision.png" alt="Hikvision" /></div>
-            <div className="brand-item"><img src="/hilook.jpg" alt="HiLook" /></div>
-            <div className="brand-item"><img src="/xiaomi.png" alt="Xiaomi" /></div>
-            <div className="brand-item"><img src="/samsung.png" alt="Samsung" /></div>
-
-            {/* SEGUNDA SEQUÊNCIA — cópia para o loop ficar contínuo */}
-            <div className="brand-item"><img src="/intelbras.png" alt="Intelbras" /></div>
-            <div className="brand-item"><img src="/hikvision.png" alt="Hikvision" /></div>
-            <div className="brand-item"><img src="/hilook.jpg" alt="HiLook" /></div>
-            <div className="brand-item"><img src="/xiaomi.png" alt="Xiaomi" /></div>
-            <div className="brand-item"><img src="/samsung.png" alt="Samsung" /></div>
-
-          </div>
-        </div>
-      </section>
 
       {/* 3. PROFILE SELECTOR SECTION */}
       <section id="perfil" className="py-14 md:py-24 relative z-25 bg-brand-gray/10 border-t border-white/5">
@@ -463,7 +503,7 @@ function App() {
               }`}>
                 <Home className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">🏠 Residência</h3>
+              <h3 className="text-lg font-bold text-white mb-2">Residência</h3>
               <p className="text-gray-400 text-xs leading-relaxed">
                 Proteja sua casa e família com planos de alarmes inteligentes e câmeras de alta definição.
               </p>
@@ -483,7 +523,7 @@ function App() {
               }`}>
                 <Building className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">🏢 Empresa</h3>
+              <h3 className="text-lg font-bold text-white mb-2">Empresa</h3>
               <p className="text-gray-400 text-xs leading-relaxed">
                 Segurança para seu negócio com controle de acesso, tags RFID, cercas e monitoramento total.
               </p>
@@ -515,51 +555,121 @@ function App() {
       </section>
 
       {/* 4. ÁREA DE ATENDIMENTO */}
-      <section id="onde-atendemos" className="pt-20 pb-10 md:pt-32 md:pb-16 relative z-20 bg-brand-black border-t border-white/5 text-center">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
-            <span className="text-brand-red text-xs font-black uppercase tracking-[0.25em] block mb-2">Área de atendimento</span>
-            <h2 className="text-2xl md:text-[32px] lg:text-4xl font-extrabold tracking-tight text-white mb-4 font-sans">
-              Onde atendemos
+      <section id="onde-atendemos" className="py-20 relative z-20 bg-brand-gray/10 border-t border-white/5 text-left overflow-hidden">
+        {/* Glowing red radial gradient backdrop elements to make glassmorphism translucency pop */}
+        <div className="absolute top-1/2 left-1/3 w-[350px] h-[350px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+        {/* area-atendimento-bg to allow future background image in top-right */}
+        <div 
+          id="area-atendimento-bg" 
+          className="absolute top-0 right-0 w-[40%] h-full opacity-15 pointer-events-none" 
+          style={{ objectFit: 'cover' }}
+        ></div>
+
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+          {/* TOPO DA SEÇÃO */}
+          <div className="text-center mb-12">
+            <span className="text-[#cc0000] text-[11px] font-semibold tracking-[3px] uppercase block">
+              ÁREA DE ATENDIMENTO
+            </span>
+            <h2 className="text-[32px] md:text-[52px] font-extrabold text-white mt-2 leading-none font-sans">
+              Onde <span className="text-[#cc0000]">atendemos</span>
             </h2>
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Volta Redonda, Barra Mansa, Pinheiral, Barra do Piraí e região
+            <p className="text-[#aaaaaa] text-base text-center max-w-[600px] mt-4 mb-12 mx-auto">
+              Atendemos Volta Redonda, Barra Mansa e diversas cidades da região com instalação rápida, equipamentos de qualidade e suporte especializado.
             </p>
           </div>
 
-          <div className="glassmorphism rounded-2xl overflow-hidden max-w-[900px] mx-auto border border-white/10 hover:border-brand-red/30 transition-all duration-300 hover:shadow-red-glow mb-8">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117954.23!2d-44.1!3d-22.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ea9b97b3b5b5b5b%3A0x0!2sVolta+Redonda%2C+RJ!5e0!3m2!1spt-BR!2sbr!4v1"
-              width="100%"
-              height="420"
-              style={{ border: 0, display: "block" }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          {/* LAYOUT PRINCIPAL (dois blocos lado a lado) */}
+          <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
+            
+            {/* BLOCO ESQUERDO (card grande) */}
+            <div className="w-full lg:w-[35%] glassmorphism rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 p-10 flex flex-col">
+              {/* Ícone de localização no topo */}
+              <div className="w-[56px] h-[56px] bg-[#1f0000] rounded-xl flex items-center justify-center flex-shrink-0">
+                <MapPin className="h-7 w-7 text-[#cc0000]" />
+              </div>
+              
+              <h3 className="text-white text-[32px] font-extrabold leading-none mt-6">
+                Atendimento
+                <span className="block text-[#cc0000] mt-1">regional</span>
+              </h3>
+              
+              {/* Linha decorativa */}
+              <div className="w-10 h-[3px] bg-[#cc0000] my-4"></div>
+              
+              <p className="text-[#aaaaaa] text-[15px] leading-[1.6] mb-8">
+                Equipe local, instalação rápida e suporte direto para residências, comércios, condomínios e empresas.
+              </p>
+              
+              {/* Rodapé do card */}
+              <div className="flex items-stretch justify-between border-t border-[#2a2a2a] pt-6 gap-2">
+                <div className="flex-1 flex flex-col items-center text-center px-1">
+                  <Shield className="h-6 w-6 text-[#cc0000] mb-2" />
+                  <span className="text-[#aaaaaa] text-[12px] font-medium leading-tight">Instalação profissional</span>
+                </div>
+                <div className="border-r border-[#2a2a2a]"></div>
+                <div className="flex-1 flex flex-col items-center text-center px-1">
+                  <Headset className="h-6 w-6 text-[#cc0000] mb-2" />
+                  <span className="text-[#aaaaaa] text-[12px] font-medium leading-tight">Suporte especializado</span>
+                </div>
+                <div className="border-r border-[#2a2a2a]"></div>
+                <div className="flex-1 flex flex-col items-center text-center px-1">
+                  <Clock className="h-6 w-6 text-[#cc0000] mb-2" />
+                  <span className="text-[#aaaaaa] text-[12px] font-medium leading-tight">Atendimento rápido</span>
+                </div>
+              </div>
+            </div>
+
+            {/* BLOCO DIREITO (grid de cidades) */}
+            <div className="w-full lg:w-[65%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                "Volta Redonda",
+                "Barra Mansa",
+                "Pinheiral",
+                "Barra do Piraí",
+                "Resende",
+                "Porto Real",
+                "Quatis",
+                "Piraí",
+                "Rio Claro",
+                "Valença"
+              ].map((cidade) => (
+                <div 
+                  key={cidade}
+                  className="glassmorphism rounded-2xl border border-white/5 hover:border-white/20 p-6 flex flex-col items-start transition-all duration-300 group"
+                >
+                  <MapPin className="h-[22px] w-[22px] text-[#cc0000]" />
+                  <div className="w-6 h-[2px] bg-[#cc0000] mt-3 mb-2"></div>
+                  <span className="text-white text-[17px] font-bold">{cidade}</span>
+                </div>
+              ))}
+            </div>
+
           </div>
 
-          {/* City Badges with premium styling */}
-          <div className="flex flex-wrap justify-center gap-3 max-w-[600px] mx-auto mb-8">
-            {["Volta Redonda", "Barra Mansa", "Pinheiral", "Barra do Piraí", "e região"].map((cidade) => (
-              <span 
-                key={cidade}
-                className="bg-[#121212] border border-white/5 hover:border-brand-red/30 hover:text-brand-red rounded-xl px-5 py-2 text-xs md:text-sm font-semibold text-gray-300 transition-all duration-300 cursor-default hover:-translate-y-0.5"
-              >
-                {cidade}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex justify-center">
+          {/* BANNER INFERIOR */}
+          <div className="mt-8 glassmorphism rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 py-6 px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            {/* Lado esquerdo */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+              <div className="w-12 h-12 rounded-full bg-[#cc0000] flex items-center justify-center flex-shrink-0 shadow-red-glow">
+                <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.007a9.863 9.863 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+              </div>
+              <div className="flex flex-col items-center sm:items-start">
+                <span className="text-white text-[18px] font-bold">Sua cidade não está na lista?</span>
+                <span className="text-[#aaaaaa] text-sm mt-0.5">Chame no WhatsApp e consulte disponibilidade.</span>
+              </div>
+            </div>
+            {/* Lado direito */}
             <a 
-              href="https://wa.me/5524998534534?text=Olá!%20Quero%20verificar%20se%20vocês%20atendem%20minha%20cidade."
+              href="https://wa.me/5524998534534?text=Olá!%20Minha%20cidade%20não%20está%20na%20lista.%20Vocês%20atendem%20aqui?"
               target="_blank"
               rel="noreferrer"
-              className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] flex items-center gap-2"
+              className="bg-[#cc0000] hover:bg-red-700 text-white py-4 px-8 rounded-lg text-sm font-bold tracking-[1px] transition-all duration-300 shadow-red-glow text-center flex items-center justify-center flex-shrink-0"
             >
-              <Phone className="h-4.5 w-4.5" />
-              Verificar atendimento na minha cidade
+              CONSULTAR ATENDIMENTO →
             </a>
           </div>
         </div>
@@ -761,6 +871,30 @@ function App() {
         </div>
       </section>
 
+      {/* MARCAS PARCEIRAS MARQUEE */}
+      <section className="marcas-section">
+        <p className="marcas-titulo">Marcas que trabalhamos</p>
+        <div className="marquee-outer">
+          <div className="marquee-track">
+
+            {/* PRIMEIRA SEQUÊNCIA */}
+            <div className="brand-item"><img src="/intelbras.png" alt="Intelbras" /></div>
+            <div className="brand-item"><img src="/hikvision.png" alt="Hikvision" /></div>
+            <div className="brand-item"><img src="/hilook.jpg" alt="HiLook" /></div>
+            <div className="brand-item"><img src="/xiaomi.png" alt="Xiaomi" /></div>
+            <div className="brand-item"><img src="/samsung.png" alt="Samsung" /></div>
+
+            {/* SEGUNDA SEQUÊNCIA — cópia para o loop ficar contínuo */}
+            <div className="brand-item"><img src="/intelbras.png" alt="Intelbras" /></div>
+            <div className="brand-item"><img src="/hikvision.png" alt="Hikvision" /></div>
+            <div className="brand-item"><img src="/hilook.jpg" alt="HiLook" /></div>
+            <div className="brand-item"><img src="/xiaomi.png" alt="Xiaomi" /></div>
+            <div className="brand-item"><img src="/samsung.png" alt="Samsung" /></div>
+
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS SECTION - MOBILE OPTIMIZED (Gap 32px, Background number 60px on mobile) */}
       <section id="como-funciona" className="py-14 md:py-24 bg-brand-gray/20 border-y border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
@@ -843,116 +977,149 @@ function App() {
       </section>
 
       {/* 5. SOBRE NÓS (QUEM SOMOS) SECTION */}
-      <section id="sobre" className="py-14 md:py-24 relative z-10 bg-brand-black border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <span className="text-brand-red text-xs font-black uppercase tracking-[0.25em] block mb-2">QUEM SOMOS</span>
-            <h2 className="text-2xl md:text-[32px] lg:text-4xl font-extrabold tracking-tight text-white mb-4 font-sans">
-              Segurança com quem <span className="text-brand-red">realmente entende</span>
-            </h2>
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Conheça a história e os valores que fazem da Barretos Segurança Eletrônica a escolha certa para o seu patrimônio.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <section id="sobre" className="py-20 px-6 lg:px-[80px] bg-[#0a0a0a] w-full relative z-10 border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* BLOCO SUPERIOR — dois blocos lado a lado */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-[60px] lg:h-[320px] items-stretch">
             
-            {/* Left Column: Premium visual highlight box */}
-            <div className="lg:col-span-5 relative">
-              <div className="glassmorphism rounded-3xl p-8 border border-brand-red/30 shadow-red-glow relative overflow-hidden text-left bg-gradient-to-br from-[#0c0c0c] to-[#121212]">
-                
-                {/* Glowing red radial gradient background */}
-                <div className="absolute -top-12 -left-12 w-40 h-40 bg-brand-red/10 rounded-full blur-2xl pointer-events-none"></div>
-
-                <div className="h-14 w-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 text-brand-red flex items-center justify-center mb-6">
-                  <Shield className="h-7 w-7" />
+            {/* Bloco esquerdo (55%) */}
+            <div className="w-full lg:w-[55%] flex flex-col justify-center text-left">
+              <span className="text-[#cc0000] text-[12px] font-semibold tracking-[2px] uppercase mb-4 block leading-none">
+                SOBRE NÓS
+              </span>
+              <h2 className="text-[32px] lg:text-[48px] font-extrabold text-white leading-[1.1] font-sans">
+                Proteção de verdade <br />
+                começa com <span className="text-[#cc0000]">confiança.</span>
+              </h2>
+              <p className="text-[15px] text-[#aaaaaa] leading-[1.7] max-w-[420px] mt-5">
+                Desde 2018, a Barretos Segurança Eletrônica trabalha para proteger o que mais importa: você, sua família e seu patrimônio.
+              </p>
+              
+              {/* Três badges em linha horizontal */}
+              <div className="flex flex-wrap items-center gap-6 mt-7">
+                <div className="flex items-center gap-2">
+                  <Shield className="h-[18px] w-[18px] text-[#cc0000] flex-shrink-0" />
+                  <span className="text-[13px] font-medium text-white leading-none">Atendimento próprio</span>
                 </div>
-                
-                <h3 className="text-xl font-bold text-white mb-4">Barretos Segurança</h3>
-                
-                {/* Featured Quote / Main Commitment */}
-                <div className="border-l-2 border-brand-red pl-4 my-6">
-                  <p className="text-white text-sm md:text-base font-semibold leading-relaxed italic">
-                    "Nosso compromisso é simples: sua segurança com quem realmente entende do assunto."
-                  </p>
+                <div className="flex items-center gap-2">
+                  <Clock className="h-[18px] w-[18px] text-[#cc0000] flex-shrink-0" />
+                  <span className="text-[13px] font-medium text-white leading-none">Suporte rápido 24h</span>
                 </div>
-
-                {/* Company quick highlights */}
-                <ul className="space-y-3.5 text-xs text-gray-300 mt-6 pt-6 border-t border-white/5">
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
-                    Experiência Local <strong>Desde 2018</strong>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
-                    Atendimento <strong>Direto pelo Proprietário</strong>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
-                    Marcas líderes: <strong>Intelbras, Hikvision</strong> e outras
-                  </li>
-                </ul>
-
+                <div className="flex items-center gap-2">
+                  <Award className="h-[18px] w-[18px] text-[#cc0000] flex-shrink-0" />
+                  <span className="text-[13px] font-medium text-white leading-none">Qualidade em cada instalação</span>
+                </div>
               </div>
             </div>
 
-            {/* Right Column: Grid mapping the core copywriting points */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
-              
-              {/* Point 1: Experience & Scope */}
-              <div className="glassmorphism rounded-2xl p-5 border border-white/5 hover:border-brand-red/35 transition-all duration-300">
-                <div className="h-10 w-10 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red flex items-center justify-center mb-4">
-                  <Activity className="h-5 w-5" />
-                </div>
-                <h4 className="text-sm font-bold text-white mb-2">Desde 2018</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  A Barretos Segurança Eletrônica atua em Volta Redonda e região desde 2018 instalando câmeras, alarmes e sistemas de acesso para residências e empresas.
-                </p>
+            {/* Bloco direito (45%) */}
+            <div className="w-full lg:w-[45%] flex items-center justify-center">
+              <div className="rounded-2xl w-full h-[300px] bg-[#1a1a1a] overflow-hidden border border-white/5 flex items-center justify-center group hover:border-[#cc0000]/30 transition-all duration-300 shadow-lg">
+                <img 
+                  src="/carro-fachada.jpg" 
+                  alt="Carro e Fachada Barretos Segurança" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>
-
-              {/* Point 2: Commitment & Honesty */}
-              <div className="glassmorphism rounded-2xl p-5 border border-white/5 hover:border-brand-red/35 transition-all duration-300">
-                <div className="h-10 w-10 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red flex items-center justify-center mb-4">
-                  <Check className="h-5 w-5" />
-                </div>
-                <h4 className="text-sm font-bold text-white mb-2">Honestidade & Transparência</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Somos uma empresa séria, comprometida com a honestidade em cada orçamento e com a qualidade em cada instalação. Aqui você recebe exatamente o que foi combinado, sem surpresas no final.
-                </p>
-              </div>
-
-              {/* Point 3: Direct Support by Owner */}
-              <div className="glassmorphism rounded-2xl p-5 border border-white/5 hover:border-brand-red/35 transition-all duration-300">
-                <div className="h-10 w-10 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red flex items-center justify-center mb-4">
-                  <Zap className="h-5 w-5" />
-                </div>
-                <h4 className="text-sm font-bold text-white mb-2">Atendimento Direto</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Todo atendimento é feito diretamente pelo proprietário, sem intermediários, garantindo agilidade, qualidade e preço justo do início ao fim do projeto.
-                </p>
-              </div>
-
-              {/* Point 4: Key Equipment Brands */}
-              <div className="glassmorphism rounded-2xl p-5 border border-white/5 hover:border-brand-red/35 transition-all duration-300">
-                <div className="h-10 w-10 rounded-xl bg-brand-red/10 border border-brand-red/20 text-brand-red flex items-center justify-center mb-4">
-                  <Cpu className="h-5 w-5" />
-                </div>
-                <h4 className="text-sm font-bold text-white mb-2">Equipamentos de Ponta</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Trabalhamos com equipamentos das principais marcas do mercado, como Intelbras, Hikvision e outras, garantindo a solução ideal para cada projeto.
-                </p>
-              </div>
-
             </div>
 
           </div>
 
-          {/* Regional focus bottom text */}
-          <div className="mt-10 md:mt-12 bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 text-center max-w-3xl mx-auto flex items-center justify-center gap-3">
-            <MapPin className="h-5 w-5 text-brand-red flex-shrink-0" />
-            <span className="text-xs md:text-sm text-gray-300 font-medium">
-              Foco regional completo: Atendemos com agilidade em <strong>Volta Redonda, Barra Mansa, Pinheiral, Barra do Piraí e toda a região</strong>.
-            </span>
+          {/* BLOCO INFERIOR — grid de 4 colunas */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+            
+            {/* Card 1 */}
+            <div className="bg-[#141414] rounded-2xl p-6 border border-[#222] h-[320px] flex flex-col justify-between text-left group hover:border-[#cc0000]/30 transition-all duration-300">
+              <div>
+                <Calendar className="h-7 w-7 text-[#cc0000] mb-3.5" />
+                <h3 className="text-white text-[16px] font-bold mb-2">Desde 2018</h3>
+                <p className="text-[#999] text-[13px] leading-[1.6]">
+                  Atuamos em Volta Redonda e região oferecendo soluções inteligentes em segurança eletrônica.
+                </p>
+              </div>
+              <div className="mt-5 bg-[#1e1e1e] rounded-[10px] h-[130px] w-full overflow-hidden border border-white/5 flex items-center justify-center group-hover:border-[#cc0000]/20 transition-colors duration-300">
+                <img 
+                  src="/foto-instalacao.jpg" 
+                  alt="Instalação de câmeras Barretos" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-[#141414] rounded-2xl p-6 border border-[#222] h-[320px] flex flex-col justify-between text-left group hover:border-[#cc0000]/30 transition-all duration-300">
+              <div>
+                <Shield className="h-7 w-7 text-[#cc0000] mb-3.5" />
+                <h3 className="text-white text-[16px] font-bold mb-2">Honestidade e Transparência</h3>
+                <p className="text-[#999] text-[13px] leading-[1.6]">
+                  Compromisso com a verdade, orçamento justo e qualidade em cada detalhe.
+                </p>
+              </div>
+              <div className="mt-5 bg-[#1e1e1e] rounded-[10px] h-[130px] w-full overflow-hidden border border-white/5 flex items-center justify-center group-hover:border-[#cc0000]/20 transition-colors duration-300">
+                <img 
+                  src="/foto-reuniao.jpg" 
+                  alt="Compromisso e Transparência Barretos" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-[#141414] rounded-2xl p-6 border border-[#222] h-[320px] flex flex-col justify-between text-left group hover:border-[#cc0000]/30 transition-all duration-300">
+              <div>
+                <Headset className="h-7 w-7 text-[#cc0000] mb-3.5" />
+                <h3 className="text-white text-[16px] font-bold mb-2">Atendimento Direto</h3>
+                <p className="text-[#999] text-[13px] leading-[1.6]">
+                  Fale diretamente com quem resolve. Sem filas, sem burocracia.
+                </p>
+              </div>
+              <div className="mt-5 bg-[#1e1e1e] rounded-[10px] h-[130px] w-full overflow-hidden border border-white/5 flex items-center justify-center group-hover:border-[#cc0000]/20 transition-colors duration-300">
+                <img 
+                  src="/foto-atendente.jpg" 
+                  alt="Atendimento Direto Barretos" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-[#141414] rounded-2xl p-6 border border-[#222] h-[320px] flex flex-col justify-between text-left group hover:border-[#cc0000]/30 transition-all duration-300">
+              <div>
+                <Settings className="h-7 w-7 text-[#cc0000] mb-3.5" />
+                <h3 className="text-white text-[16px] font-bold mb-2">Equipamentos de Ponta</h3>
+                <p className="text-[#999] text-[13px] leading-[1.6]">
+                  Trabalhamos com as melhores marcas para garantir máxima proteção.
+                </p>
+              </div>
+              <div className="mt-5 bg-[#1e1e1e] rounded-[10px] h-[130px] w-full overflow-hidden border border-white/5 flex items-center justify-center group-hover:border-[#cc0000]/20 transition-colors duration-300">
+                <img 
+                  src="/foto-equipamentos.jpg" 
+                  alt="Equipamentos de Segurança Eletrônica Barretos" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
+              </div>
+            </div>
+
+          </div>
+
+          {/* RODAPÉ DA SEÇÃO — barra horizontal */}
+          <div className="mt-12 bg-[#111111] rounded-2xl p-7 px-9 flex flex-col md:flex-row items-center gap-8 border border-white/5">
+            {/* À esquerda: logo da Barretos */}
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <img src="/Logo.png" alt="Barretos Logo" className="h-[44px] w-auto" />
+              <div className="flex flex-col text-left">
+                <span className="text-white font-extrabold text-lg tracking-wider leading-none">BARRETOS</span>
+                <span className="text-[#aaa] font-normal text-[11px] tracking-wider leading-none mt-1">SEGURANÇA ELETRÔNICA</span>
+              </div>
+            </div>
+            {/* Divisória vertical */}
+            <div className="hidden md:block border-r border-[#333] h-12"></div>
+            {/* À direita */}
+            <div className="text-center md:text-left">
+              <p className="text-white text-[14px] leading-[1.7]">Mais que equipamentos, entregamos tranquilidade.</p>
+              <p className="text-white text-[14px] leading-[1.7]">Conte com quem realmente entende do assunto.</p>
+            </div>
           </div>
 
         </div>
@@ -1143,64 +1310,6 @@ function App() {
         </div>
       </section>
 
-      {/* NOSSOS CLIENTES MARQUEE */}
-      <section className="py-14 bg-brand-black border-t border-white/5 relative z-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-gray-500 text-xs font-black uppercase tracking-[0.25em] block mb-2">
-              Nossos clientes
-            </span>
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Como diversos outros, esses clientes já escolheram a Barretos Segurança para proteger o que importa.
-            </p>
-          </div>
-        </div>
-
-        {/* Carousel Container */}
-        <div className="relative w-full flex overflow-hidden mask-fade">
-          <div className="flex gap-6 py-4 px-2 w-max animate-marquee whitespace-nowrap">
-            {/* Sequence 1 */}
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm1.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm2.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/galpao.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/espacoc.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pnb.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/play.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-
-            {/* Sequence 2 */}
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm1.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pm2.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/galpao.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/espacoc.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/pnb.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="w-44 h-20 flex items-center justify-center bg-[#121212] border border-white/5 rounded-xl p-4 flex-shrink-0">
-              <img src="/play.png" alt="Cliente" className="w-full max-h-20 object-contain filter grayscale opacity-60 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FOOTER */}
       <footer className="bg-brand-black border-t border-white/5 py-12 md:py-16 relative z-10">

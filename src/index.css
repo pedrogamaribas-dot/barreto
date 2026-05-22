@@ -9,7 +9,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#0a0a0a] text-gray-200 antialiased font-sans overflow-x-hidden selection:bg-brand-red selection:text-white;
+    @apply bg-[#0a0a0a] text-gray-200 antialiased font-sans overflow-x-hidden;
   }
 }
 
